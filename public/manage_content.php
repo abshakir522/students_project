@@ -1,30 +1,37 @@
-<?php require_once("../include/db_connection.php") ?>
+<?php require_once("../include/db_connection.php");  ?>
+<?php require_once("../include/functions.php"); ?>
 <?php
 	// 2. Perform database query
-	$query  = "SELECT * ";
-	$query .= "FROM subjects ";
-	$query .= "WHERE visible = 1 ";
-	$query .= "ORDER BY position ASC";
-	$result = mysqli_query($connection, $query);
-	// Test if there was a query error
-	if (!$result) {
-		die("Database query failed.");
-	}
+	$subject_set = get_all_subjects();
 ?>
 <?php include("../include/layout/header.php") ?>
 <div id="main">
     <div id="navigation">
-		<ul>
+		<ul class="subjects">
 			<?php
 				// 3. Use returned data (if any)
-				while($subject = mysqli_fetch_assoc($result)) {
+				while($subject = mysqli_fetch_assoc($subject_set)) {
 					// output data from each row
 			?>
-				<li><?php echo $subject["menu_name"] . " (" . $subject["id"] . ")"; ?></li>
+				<li><?php echo $subject["menu_name"]; ?>
+					
+					<?php
+						// 2. Perform database query
+						$page_set = get_pages_for_subject($subject["id"]);
+					?>
+					<ul class="pages">
+					<?php
+						while($page = mysqli_fetch_assoc($page_set)) {
+					?>
+						<li><?php echo $page["menu_name"]; ?></li>
+					<?php } ?>
+					
+					</ul>
+				</li>
 			<?php } ?>
 		    
 		</ul>
-		<?php mysqli_free_result($result); ?>
+		<?php mysqli_free_result($subject_set); ?>
 		</div>
 
     <div id="page">
