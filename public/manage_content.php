@@ -56,14 +56,8 @@
     <div id="page">
 		<h2>Manage Content</h2>
 		
-		<?php echo $selected_subject ?>
+		<?php echo $selected_subject; ?>
 		<?php echo $selected_page; ?>
     </div>
 </div>
 <?php include("../include/layout/footer.php") ?>
-
-<!-- <?php if(true){  ?>
-	<h1><?php $var_name ?></h1>
-<?php } else{ ?>
-	<h1>Hi</h1>
-<?php } ?> -->
