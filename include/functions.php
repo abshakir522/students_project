@@ -66,10 +66,9 @@
 
   function navigation($subject_array, $page_array){
     $output = "<ul class=\"subjects\">";
-       global $subject_set;
-       global $page_set;
+        $subject_set = get_all_subjects();
 				while($subject = mysqli_fetch_assoc($subject_set)) {
-          $output .="<li";
+          $output .="<li ";
           $output .="class=\"";
           if($subject['id'] == $subject_array['id']){ 
             $output .="selected";

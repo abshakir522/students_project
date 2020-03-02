@@ -16,10 +16,7 @@
 	}
 
 ?>
-<?php
-	// 2. Perform database query
-	$subject_set = get_all_subjects();
-?>
+
 <?php include("../include/layout/header.php") ?>
 <div id="main">
     <div id="navigation">
