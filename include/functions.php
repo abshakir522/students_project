@@ -70,7 +70,7 @@
 				while($subject = mysqli_fetch_assoc($subject_set)) {
           $output .="<li ";
           $output .="class=\"";
-          if($subject['id'] == $subject_array['id']){ 
+          if($subject_array && $subject['id'] == $subject_array['id']){ 
             $output .="selected";
           }
           $output .="\">";
@@ -82,7 +82,7 @@
           $output .= "<ul class=\"pages\">";
           while($page = mysqli_fetch_assoc($page_set)) {
             $output .= "<li class=\"";
-            if($page['id'] == $page_array['id']){ 
+            if($page_array && $page['id'] == $page_array['id']){ 
               $output .= "selected";
             }
             $output .= "\">";
