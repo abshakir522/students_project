@@ -20,7 +20,9 @@
 <?php include("../include/layout/header.php") ?>
 <div id="main">
     <div id="navigation">
-		<?php echo navigation($current_subject ,$current_page);?>
+		<?php echo navigation($current_subject ,$current_page); ?>
+		<a href="new_subject.php">+ Add subject</a>
+
 	</div>
 
     <div id="page">
