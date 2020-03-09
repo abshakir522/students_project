@@ -1,27 +1,15 @@
 <?php require_once("../include/db_connection.php");  ?>
 <?php require_once("../include/functions.php"); ?>
 <?php 
-	if(isset($_GET['subject'])){
-		$current_subject = get_subject_by_id($_GET['subject']);
-		$current_page = null;
-
-	}elseif(isset($_GET['page'])){
-		$current_page = get_page_by_id($_GET['page']);
-		$current_subject = null;
-
-	}else{
-		$current_subject = null;
-		$current_page = null;
-		
-	}
-
+	find_selected_page();
 ?>
 
 <?php include("../include/layout/header.php") ?>
 <div id="main">
     <div id="navigation">
 		<?php echo navigation($current_subject ,$current_page); ?>
-		<a href="new_subject.php">+ Add subject</a>
+		<a href="new_subject.php">+ Add Subject</a>
+		
 
 	</div>
 

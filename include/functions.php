@@ -1,8 +1,33 @@
 <?php 
+
+function redirect_to($path){
+  header("Location: {$path}");
+  exit();
+}
+
   function test_query($result_set){
     if (!$result_set) {
 		die("Database query failed.");
 	}
+  }
+
+  function find_selected_page(){
+    global $current_subject;
+    global $current_page;
+
+    if(isset($_GET['subject'])){
+      $current_subject = get_subject_by_id($_GET['subject']);
+      $current_page = null;
+  
+    }elseif(isset($_GET['page'])){
+      $current_page = get_page_by_id($_GET['page']);
+      $current_subject = null;
+  
+    }else{
+      $current_subject = null;
+      $current_page = null;
+      
+    }
   }
 
 
