@@ -59,3 +59,10 @@ ul.pages { padding-left: 2em; list-style: square; font-weight: normal;}
 }
 #page h2 { color: #8D0D19; margin-top: 1em;}
 #page h3 { color: #8D0D19; }
+
+div.message{
+	margin-top:30px;
+	border: 2px solid red;
+	padding: 10px 10px;
+	color: blue;
+}

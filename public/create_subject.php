@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once("../include/db_connection.php");  ?>
 <?php require_once("../include/functions.php"); ?>
 <?php 
@@ -13,9 +14,13 @@
         $result = mysqli_query($connection, $query);
         if($result){
             //success
+            $message = "Subject Created";
+            $_SESSION['mess'] = $message;
             redirect_to('manage_content.php');
         }else{
             //failed
+            $message = "Subject creation failed";
+            $_SESSION['mess'] = $message;
             redirect_to('new_subject.php');
             
         }

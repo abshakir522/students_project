@@ -1,3 +1,4 @@
+<?php require_once("../include/sessions.php");  ?>
 <?php require_once("../include/db_connection.php");  ?>
 <?php require_once("../include/functions.php"); ?>
 <?php 
@@ -14,12 +15,13 @@
 	</div>
 
     <div id="page">
+		<?php echo showMessage(); ?>
 		<?php if ($current_subject) { ?>
 				<h1>Manage Subject</h1>
 		<?php 
-			echo $current_subject['menu_name'];
-
-			}elseif($current_page){ ?>
+			echo $current_subject['menu_name']; ?>
+				<a href="edit_subject.php?subject=<?= $current_subject['id']; ?>">Edit subject</a>
+			<?php }elseif($current_page){ ?>
 			<h2>Mange Page</h2>
 			<?php
 			echo $current_page['menu_name'];
