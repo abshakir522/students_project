@@ -20,7 +20,10 @@
 				<h1>Manage Subject</h1>
 		<?php 
 			echo $current_subject['menu_name']; ?>
+				<br />
+				<br />
 				<a href="edit_subject.php?subject=<?= $current_subject['id']; ?>">Edit subject</a>
+				<a href="delete_subject.php?subject=<?= $current_subject['id']; ?>">Delete Subject</a>
 			<?php }elseif($current_page){ ?>
 			<h2>Mange Page</h2>
 			<?php
