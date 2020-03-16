@@ -126,6 +126,44 @@ function redirect_to($path){
     return $output;
 
   }
+
+  function public_navigation($subject_array, $page_array){
+    $output = "<ul class=\"subjects\">";
+        $subject_set = get_all_subjects();
+				while($subject = mysqli_fetch_assoc($subject_set)) {
+          $output .="<li ";
+          $output .="class=\"";
+          if($subject_array && $subject['id'] == $subject_array['id']){ 
+            $output .="selected";
+          }
+          $output .="\">";
+
+          $output .="<a href=\"index.php?subject={$subject['id']}\">";
+          $output .= $subject["menu_name"];
+          $output .="</a>";
+          $page_set = get_pages_for_subject($subject["id"]);
+          $output .= "<ul class=\"pages\">";
+          while($page = mysqli_fetch_assoc($page_set)) {
+            $output .= "<li class=\"";
+            if($page_array && $page['id'] == $page_array['id']){ 
+              $output .= "selected";
+            }
+            $output .= "\">";
+            $output .= "<a href=\"index.php?page={$page['id']}\">";
+            $output .= $page["menu_name"]; 
+            $output .= "</a>";
+            $output .="</li>";
+          }
+            
+              $output .= "</ul>";
+              $output .="</li>";
+			} 
+		    
+      $output .="</ul>";
+    mysqli_free_result($subject_set);
+    return $output;
+
+  }
   
 
   

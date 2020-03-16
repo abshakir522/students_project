@@ -10,8 +10,6 @@
     <div id="navigation">
 		<?php echo navigation($current_subject ,$current_page); ?>
 		<a href="new_subject.php">+ Add Subject</a>
-		
-
 	</div>
 
     <div id="page">

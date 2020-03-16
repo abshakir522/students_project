@@ -1,16 +1,37 @@
+<?php require_once("../include/db_connection.php");  ?>
+<?php require_once("../include/functions.php"); ?>
+<?php 
+	find_selected_page();
+?>
 <?php include("../include/layout/header.php") ?>
 <div id="main">
     <div id="navigation">
-        &nbsp;
+		<?php echo public_navigation($current_subject ,$current_page); ?>
     </div>
+
     <div id="page">
-        <h2>Admin Menu</h2>
-        <p>Welcome to the admin area.</p>
-        <ul>
-            <li><a href="manage_content.php">Manage Website Content</a></li>
-            <li><a href="manage_admins.php">Manage Admin Users</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
+
+		<?php if ($current_subject) { ?>
+            <h1><?= $current_subject['menu_name']; ?></h1>
+            <?php  
+            $pages = get_pages_for_subject($_GET['subject']);
+            while ($row = mysqli_fetch_assoc($pages)) {
+                echo $row['menu_name']."<br/>";
+                # code...
+            }
+            ?>
+
+			<?php }elseif($current_page){ ?>
+			<h2><?= $current_page['menu_name']; ?></h2>
+            <p><?= $current_page['content']; ?></p>
+			<?php
+			
+
+			}else{
+				echo "Please select a subject or page";
+				
+			}
+		?>
     </div>
 </div>
 <?php include("../include/layout/footer.php") ?>
