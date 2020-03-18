@@ -2,6 +2,7 @@
 <?php require_once("../include/db_connection.php");  ?>
 <?php require_once("../include/functions.php"); ?>
 <?php 
+	confirm_login();
 	find_selected_page();
 ?>
 
