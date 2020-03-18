@@ -44,6 +44,15 @@ function redirect_to($path){
     
   }
 
+  function get_all_admins(){
+    global $connection;
+    $query  = "SELECT * ";
+    $query .= "FROM admins ";
+    $query .= "ORDER BY username ASC";
+    $admin_set = mysqli_query($connection, $query);
+    return $admin_set;
+  }
+
   function get_pages_for_subject($subject_id){
     global $connection;
     $query  = "SELECT * ";
