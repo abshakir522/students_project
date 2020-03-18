@@ -10,6 +10,7 @@
 		<br />
   </div>
   <div id="page">
+    <?php echo showMessage(); ?>
     <h2>Manage Admins</h2>
     <table>
       <tr>
